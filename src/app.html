@@ -1,0 +1,18 @@
+<template>
+	<div class="app slds-p-around_x-large">
+		<h1 class="slds-text-heading_large">Add Initiative</h1>
+
+		<lightning-input type="number" name="close_year" label="Anticipated Close Year" value={close_year}
+			onchange={close_year_change}></lightning-input>
+		<lightning-input type="number" name="initiative_value" label="Initiative Value" formatter="currency" step="0.01"
+			value={initiative_value} onchange={initiative_value_change}>
+		</lightning-input>
+
+		<lightning-button label="Split By Year" title="Non-primary action" onclick={splitByYearEnable}
+			class="slds-m-left_x-small"></lightning-button>
+
+		<div id="yearSplit" if:true={splitByYear}>
+			<c-child no_of_rows={no_of_rows} value_to_split={initiative_value} onspliterror={showToast}></c-child>
+		</div>
+	</div>
+</template>

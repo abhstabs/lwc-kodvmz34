@@ -1,0 +1,10 @@
+<template>
+	<div class="slds-m-horizontal_xx-small slds-m-bottom_x-small">
+		<template for:each={rows} for:item="row">
+			<lightning-input key={row} type="number" label={row} formatter="currency" step="0.01">
+			</lightning-input>
+		</template>
+		<lightning-button variant="brand" label="Submit" title="Save" onclick={checkInitiativeSplit}
+			class="slds-m-left_x-small"></lightning-button>
+	</div>
+</template>
